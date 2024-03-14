@@ -82,7 +82,8 @@ is t."
                     (or (string-match-p thing (regexp-quote (yas--template-key template)))
                         (string-match-p thing (regexp-quote (yas--template-name template))))))))
         (if use-thing-at-point
-            (bounds-of-thing-at-point 'symbol)
+            (or (bounds-of-thing-at-point 'symbol)
+                (cons (point) (point)))
           (cons (point) (point))))
     (cons (point) (point))))
 
